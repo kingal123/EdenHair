@@ -181,6 +181,32 @@
       animation-delay: 1.15s;
     }
 
+    .booking-btn{
+      position: fixed;
+      top: calc(18px + env(safe-area-inset-top, 0px));
+      right: 18px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border: 1px solid rgba(246,243,230,.55);
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ivory);
+      background: rgba(180,154,98,.20);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+
+      opacity: 0;
+      transform: translateY(-8px);
+      animation: fadeUp .9s ease forwards;
+      animation-delay: 1.05s;
+    }
+
     .contact-btn svg{
       width: 16px;
       height: 16px;
@@ -190,6 +216,13 @@
     .contact-btn:hover,
     .contact-btn:focus-visible{
       transform: translateY(-1px);
+      background: rgba(180,154,98,.30);
+      border-color: rgba(246,243,230,.75);
+    }
+
+    .booking-btn:hover,
+    .booking-btn:focus-visible{
+      transform: translateY(1px);
       background: rgba(180,154,98,.30);
       border-color: rgba(246,243,230,.75);
     }
@@ -250,13 +283,21 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; }
-      .eden, .submark, .soon, .contact-btn{ opacity:1 !important; transform:none !important; }
+      .eden, .submark, .soon, .contact-btn, .booking-btn{ opacity:1 !important; transform:none !important; }
       .eden::before, .submark .underline{ transform: scaleX(1) !important; }
       .bg{ animation:none !important; }
       .soon .text::after{ display:none !important; }
     }
 
     @media (max-width: 420px){
+      .booking-btn{
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        right: 12px;
+        padding: 9px 12px;
+        font-size: 11px;
+        letter-spacing: .10em;
+      }
+
       .contact-btn{
         right: 12px;
         bottom: calc(12px + env(safe-area-inset-bottom, 0px));
@@ -300,6 +341,16 @@
 <body>
   <div class="bg" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
+
+  <a
+    class="booking-btn"
+    href="https://studio36hair.booksy.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Book an appointment on Booksy"
+  >
+    Book on Booksy
+  </a>
 
   <main class="wrap" aria-label="Eden Hair Studio coming soon">
     <h1 class="eden">EDEN</h1>
