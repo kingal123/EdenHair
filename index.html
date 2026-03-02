@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eden Hair Studio — Coming Soon</title>
-  <meta name="description" content="Eden Hair Studio — Coming Soon." />
+  <meta name="description" content="Eden Hair Studio — Coming Soon. Contact us on WhatsApp: +44 7455 252947." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,6 +154,50 @@
       display:inline-block;
     }
 
+    .contact-btn{
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border: 1px solid rgba(246,243,230,.55);
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ivory);
+      background: rgba(180,154,98,.20);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeUp .9s ease forwards;
+      animation-delay: 1.15s;
+    }
+
+    .contact-btn:hover,
+    .contact-btn:focus-visible{
+      transform: translateY(-1px);
+      background: rgba(180,154,98,.30);
+      border-color: rgba(246,243,230,.75);
+    }
+
+    .contact-fallback{
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: .05em;
+      color: var(--muted);
+    }
+
+    .contact-fallback a{
+      color: var(--ivory);
+      text-decoration-color: rgba(246,243,230,.55);
+      text-underline-offset: 2px;
+    }
+
     /* subtle shimmer sweep */
     .soon .text::after{
       content:"";
@@ -210,7 +254,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; }
-      .eden, .submark, .soon{ opacity:1 !important; transform:none !important; }
+      .eden, .submark, .soon, .contact-btn{ opacity:1 !important; transform:none !important; }
       .eden::before, .submark .underline{ transform: scaleX(1) !important; }
       .bg{ animation:none !important; }
       .soon .text::after{ display:none !important; }
@@ -234,6 +278,20 @@
       <span class="text">Coming Soon</span>
       <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
     </div>
+
+    <a
+      class="contact-btn"
+      href="https://wa.me/447455252947?text=Hi%20Eden%20Hair%20Studio%2C%20I%27d%20like%20to%20book%20an%20appointment."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Eden Hair Studio on WhatsApp"
+    >
+      Contact Us on WhatsApp
+    </a>
+
+    <p class="contact-fallback">
+      No WhatsApp? Call us on <a href="tel:+447455252947" aria-label="Call Eden Hair Studio on +44 7455 252947">+44 7455 252947</a>
+    </p>
   </main>
 </body>
 </html>
