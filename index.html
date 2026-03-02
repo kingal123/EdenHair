@@ -155,11 +155,15 @@
     }
 
     .contact-btn{
-      margin-top: 28px;
+      position: fixed;
+      right: 18px;
+      bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+      z-index: 3;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 11px 18px;
+      gap: 8px;
+      padding: 11px 16px;
       border: 1px solid rgba(246,243,230,.55);
       border-radius: 999px;
       font-family: var(--sans);
@@ -177,25 +181,17 @@
       animation-delay: 1.15s;
     }
 
+    .contact-btn svg{
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+    }
+
     .contact-btn:hover,
     .contact-btn:focus-visible{
       transform: translateY(-1px);
       background: rgba(180,154,98,.30);
       border-color: rgba(246,243,230,.75);
-    }
-
-    .contact-fallback{
-      margin-top: 10px;
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: .05em;
-      color: var(--muted);
-    }
-
-    .contact-fallback a{
-      color: var(--ivory);
-      text-decoration-color: rgba(246,243,230,.55);
-      text-underline-offset: 2px;
     }
 
     /* subtle shimmer sweep */
@@ -259,6 +255,45 @@
       .bg{ animation:none !important; }
       .soon .text::after{ display:none !important; }
     }
+
+    @media (max-width: 420px){
+      .contact-btn{
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        padding: 9px 12px;
+        gap: 6px;
+        font-size: 11px;
+        letter-spacing: .10em;
+      }
+
+      .contact-btn svg{
+        width: 14px;
+        height: 14px;
+        flex-basis: 14px;
+      }
+    }
+
+    @media (max-width: 340px){
+      .contact-btn{
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        letter-spacing: 0;
+      }
+
+      .contact-btn .contact-text{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    }
   </style>
 </head>
 
@@ -279,19 +314,20 @@
       <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
     </div>
 
-    <a
-      class="contact-btn"
-      href="https://wa.me/447455252947?text=Hi%20Eden%20Hair%20Studio%2C%20I%27d%20like%20to%20book%20an%20appointment."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contact Eden Hair Studio on WhatsApp"
-    >
-      Contact Us on WhatsApp
-    </a>
-
-    <p class="contact-fallback">
-      No WhatsApp? Call us on <a href="tel:+447455252947" aria-label="Call Eden Hair Studio on +44 7455 252947">+44 7455 252947</a>
-    </p>
   </main>
+
+  <a
+    class="contact-btn"
+    href="https://wa.me/447455252947?text=Hi%20Eden%20Hair%20Studio%2C%20I%27d%20like%20to%20book%20an%20appointment."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact Eden Hair Studio on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M19.1 17.7c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-2.9-1.6-4.1-3.7-.3-.5.3-.5.8-1.8.1-.2.1-.4 0-.5-.1-.1-.7-1.7-1-2.4-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.6 1 2.8c.1.2 1.8 2.8 4.4 3.9 1.7.8 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.2-.1-.4-.2-.7-.3z"/>
+      <path fill="currentColor" d="M16 3.2C9 3.2 3.2 9 3.2 16c0 2.2.6 4.3 1.7 6.2L3 29l7-1.8c1.8 1 3.9 1.5 6 1.5 7 0 12.8-5.8 12.8-12.8S23 3.2 16 3.2zm0 23.5c-1.9 0-3.8-.5-5.4-1.4l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1-1.6-1.6-3.6-1.6-5.7 0-5.9 4.8-10.8 10.8-10.8S26.8 10.1 26.8 16 21.9 26.7 16 26.7z"/>
+    </svg>
+    <span class="contact-text">Contact us</span>
+  </a>
 </body>
 </html>
