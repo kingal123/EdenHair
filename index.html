@@ -189,6 +189,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 11px 16px;
       border: 1px solid rgba(246,243,230,.55);
       border-radius: 999px;
@@ -205,6 +206,12 @@
       transform: translateY(-8px);
       animation: fadeUp .9s ease forwards;
       animation-delay: 1.05s;
+    }
+
+    .booking-btn svg{
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
     }
 
     .contact-btn svg{
@@ -298,6 +305,12 @@
         letter-spacing: .10em;
       }
 
+      .booking-btn svg{
+        width: 14px;
+        height: 14px;
+        flex-basis: 14px;
+      }
+
       .contact-btn{
         right: 12px;
         bottom: calc(12px + env(safe-area-inset-bottom, 0px));
@@ -315,6 +328,28 @@
     }
 
     @media (max-width: 340px){
+      .booking-btn{
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        right: 12px;
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        letter-spacing: 0;
+      }
+
+      .booking-btn .booking-text{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       .contact-btn{
         padding: 10px;
         width: 40px;
@@ -349,7 +384,10 @@
     rel="noopener noreferrer"
     aria-label="Book an appointment on Booksy"
   >
-    Book on Booksy
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1Zm13 8H4v9a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-9ZM5 6a1 1 0 0 0-1 1v1h16V7a1 1 0 0 0-1-1H5Zm3 7h3v3H8v-3Z"/>
+    </svg>
+    <span class="booking-text">Booksy</span>
   </a>
 
   <main class="wrap" aria-label="Eden Hair Studio coming soon">
