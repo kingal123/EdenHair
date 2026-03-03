@@ -155,7 +155,11 @@
     }
 
     .site-footer{
-      margin-top: 28px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+      text-align: center;
       font-family: var(--sans);
       font-size: 11px;
       letter-spacing: .14em;
@@ -305,7 +309,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; }
-      .eden, .submark, .soon, .contact-btn, .booking-btn{ opacity:1 !important; transform:none !important; }
+      .eden, .submark, .soon, .contact-btn, .booking-btn, .site-footer{ opacity:1 !important; transform:none !important; }
       .eden::before, .submark .underline{ transform: scaleX(1) !important; }
       .bg{ animation:none !important; }
       .soon .text::after{ display:none !important; }
@@ -339,6 +343,12 @@
         width: 14px;
         height: 14px;
         flex-basis: 14px;
+      }
+    }
+
+    @media (max-width: 360px){
+      .site-footer{
+        bottom: calc(62px + env(safe-area-inset-bottom, 0px));
       }
     }
 
@@ -416,9 +426,9 @@
       <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
     </div>
 
-    <footer class="site-footer">2026</footer>
-
   </main>
+
+  <footer class="site-footer">2026</footer>
 
   <a
     class="contact-btn"
